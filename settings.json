@@ -1,0 +1,25 @@
+﻿{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "Production": {
+    "ClientId": "",
+    "ClientSecret": "",
+    "ClientToken": "",
+    //"ConnectionString": "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
+    "ConnectionString": "mongodb://",
+    "Database": ""
+  },
+  "Devlopment": {
+    "ClientId": "",
+    "ClientSecret": "",
+    "ClientToken": "",
+    //"ConnectionString": "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
+    "ConnectionString": "mongodb://",
+    "Database": ""
+  }
+}

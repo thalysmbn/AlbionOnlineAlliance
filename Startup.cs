@@ -14,3 +14,5 @@ serviceProvider.AddOptions();
 serviceProvider.AddSingleton<IJSONAlbion, JSONAlbion>();
 
 serviceProvider.AddSingleton(typeof(IMongoRepository<>), typeof(MongoRepository<>));
+
+await Task.Delay(-1);

@@ -12,7 +12,7 @@ await Host.CreateDefaultBuilder(args)
         var configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
             .AddJsonFile("settings.json", false).Build();
 
-        serviceProvider.Configure<Configurations>(configuration.GetSection("Devlopment"));
+        serviceProvider.Configure<Configurations>(configuration.GetSection(hostContext.HostingEnvironment.EnvironmentName));
         serviceProvider.AddLogging();
         serviceProvider.AddOptions();
         serviceProvider.AddSingleton<IJSONAlbion, JSONAlbion>();
@@ -24,5 +24,3 @@ await Host.CreateDefaultBuilder(args)
         var service = serviceProvider.BuildServiceProvider();
         var discord = service.GetService<DiscordBOT>();
     }).RunConsoleAsync();
-
-await Task.Delay(-1);

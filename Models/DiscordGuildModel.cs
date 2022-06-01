@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using AlbionOnline.Services.Mongo;
+﻿using AlbionOnline.Services.Mongo;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 

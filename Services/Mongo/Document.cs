@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Text.Json.Serialization;
 
 namespace AlbionOnline.Services.Mongo
 {
@@ -11,6 +11,6 @@ namespace AlbionOnline.Services.Mongo
             ObjectId = ObjectId.GenerateNewId();
         }
 
-        [JsonIgnore] [BsonElement("_id")] public ObjectId ObjectId { get; set; }
+        [JsonIgnore][BsonElement("_id")] public ObjectId ObjectId { get; set; }
     }
 }

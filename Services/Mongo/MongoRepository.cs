@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using AlbionOnline.Settings;
+﻿using AlbionOnline.Settings;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Linq.Expressions;
 
 namespace AlbionOnline.Services.Mongo
 {
@@ -146,7 +142,7 @@ namespace AlbionOnline.Services.Mongo
 
         private protected string GetCollectionName(Type documentType)
         {
-            return ((BsonCollectionAttribute) documentType.GetCustomAttributes(
+            return ((BsonCollectionAttribute)documentType.GetCustomAttributes(
                     typeof(BsonCollectionAttribute),
                     true)
                 .FirstOrDefault())?.CollectionName;

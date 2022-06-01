@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AlbionOnline.Services.Mongo
+﻿namespace AlbionOnline.Services.Mongo
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class BsonCollectionAttribute : Attribute

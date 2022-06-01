@@ -10,16 +10,14 @@
     "ClientId": "",
     "ClientSecret": "",
     "ClientToken": "",
-    //"ConnectionString": "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
-    "ConnectionString": "mongodb://",
+    "ConnectionString": "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
     "Database": ""
   },
   "Devlopment": {
     "ClientId": "",
     "ClientSecret": "",
     "ClientToken": "",
-    //"ConnectionString": "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
-    "ConnectionString": "mongodb://",
+    "ConnectionString": "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
     "Database": ""
   }
 }

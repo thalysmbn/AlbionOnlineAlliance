@@ -19,21 +19,21 @@ namespace AlbionOnline.Services.Discord
 {
     public class DiscordBOT : IHostedService
     {
-        private ILogger<DiscordBOT> Logger { get; }
-        private IOptions<Configurations> Configurations { get; }
-        private ServiceProvider Service { get; }
-        private DiscordSocketClient Client { get; }
+        private readonly ILogger<DiscordBOT> _logger;
+        private readonly IOptions<Configurations> _configurations;
+        private readonly ServiceProvider _service;
+        private readonly DiscordSocketClient _client;
 
         public DiscordBOT(ILogger<DiscordBOT> logger,
-            IOptions<Configurations> discordSettings,
+            IOptions<Configurations> configurations,
             IJSONAlbion jsonAlbion,
             IMongoRepository<AccountModel> accountsRepository,
             IMongoRepository<DiscordGuildModel> discordGuildRepository
         )
         {
-            Logger = logger;
-            Configurations = discordSettings;
-            Service = new ServiceCollection()
+            _logger = logger;
+            _configurations = configurations;
+            _service = new ServiceCollection()
                 .AddSingleton(new DiscordSocketClient(new DiscordSocketConfig
                 {
                     GatewayIntents = GatewayIntents.All,
@@ -45,16 +45,20 @@ namespace AlbionOnline.Services.Discord
                 .AddSingleton(accountsRepository)
                 .AddSingleton(discordGuildRepository)
                 .BuildServiceProvider();
-            Client = Service.GetRequiredService<DiscordSocketClient>();
+            _client = _service.GetRequiredService<DiscordSocketClient>();
         }
 
-        public Task StartAsync(CancellationToken cancellationToken)
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
-            return Task.CompletedTask;
+            _logger.LogInformation($"Starting BOT service {_configurations.Value.ClientToken}.");
+            await _client.LoginAsync(TokenType.Bot, _configurations.Value.ClientToken);
+            await _client.StartAsync();
+            await _service.GetRequiredService<CommandHandlingService>().InitializeAsync();
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
+            _client.DisposeAsync();
             return Task.CompletedTask;
         }
     }

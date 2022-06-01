@@ -1,3 +1,3 @@
 # AlbionOnlineAlliance
 
-Docker https://hub.docker.com/repository/docker/thalysmarcio/albiononlinealliance
+Docker: thalysmarcio/albiononlinealliance
